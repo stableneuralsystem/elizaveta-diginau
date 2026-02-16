@@ -100,6 +100,8 @@
             box-shadow: 6px 6px 12px var(--shadow-dark), 
                        -6px -6px 12px var(--shadow-light);
             letter-spacing: 0.1em;
+            position: relative;
+            z-index: 2; /* Чтобы кнопка была выше блика */
         }
 
         .btn-main:hover {
@@ -252,8 +254,6 @@
             position: relative;
         }
         
-        /* Желтая полоска удалена отсюда */
-
         .mission-title {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -279,16 +279,56 @@
 
         .star { color: var(--accent-gold); margin-right: 5px; }
 
-        /* --- REVIEWS --- */
+        /* --- REVIEWS NEW STYLE --- */
         .reviews-section {
             padding: 80px 0;
             text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reviews-frame {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            padding: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.6); /* Золотая обводка */
+            overflow: hidden; /* Скрывает блик, когда он за пределами */
+            background: linear-gradient(145deg, #ffffff, #f4f6f9);
+        }
+
+        .reviews-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.8), 
+                transparent
+            );
+            transform: skewX(-25deg);
+            pointer-events: none; /* Чтобы блик не перекрывал клики */
+            animation: glass-shine 3s infinite;
+        }
+
+        @keyframes glass-shine {
+            0% { left: -150%; opacity: 0; }
+            5% { opacity: 1; }
+            20% { left: 150%; opacity: 1; } /* Блик пролетает быстро */
+            21% { opacity: 0; }
+            100% { left: 150%; opacity: 0; } /* Пауза до конца 3 секунд */
         }
 
         .reviews-intro {
             margin-bottom: 30px;
             color: var(--text-muted);
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
 
         /* --- REVIEWS FULLSCREEN MODAL --- */
@@ -514,6 +554,7 @@
             .regalia-grid { justify-content: center; }
             .personal-session-card { flex-direction: column; gap: 20px; text-align: center; }
             .gallery-prev, .gallery-next { font-size: 20px; padding: 10px; }
+            .reviews-frame { padding: 30px 20px; }
         }
 
         @media (max-width: 600px) {
@@ -580,10 +621,11 @@
     </section>
 
     <section id="reviews" class="reviews-section container">
-        <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 20px;">Отзывы</h2>
-        <p class="reviews-intro">Результаты моих клиентов — лучшее подтверждение эффективности методик</p>
-        
-        <button class="btn-main" onclick="openGallery()">Посмотреть отзывы</button>
+        <div class="reviews-frame neumorphic">
+            <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 20px;">Отзывы</h2>
+            <p class="reviews-intro">Результаты моих клиентов — лучшее подтверждение эффективности методик</p>
+            <button class="btn-main" onclick="openGallery()">Посмотреть отзывы</button>
+        </div>
     </section>
 
     <div id="galleryModal" class="gallery-modal">

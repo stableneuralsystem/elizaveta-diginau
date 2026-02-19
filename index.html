@@ -267,7 +267,7 @@
             border: 1px solid rgba(255,255,255,0.5);
         }
 
-        /* --- MISSION STYLING (NEW) --- */
+        /* --- MISSION STYLING --- */
         .mission {
             padding: 80px 0;
         }
@@ -681,7 +681,7 @@
             margin-top: 40px;
         }
 
-        /* --- ABOUT SECTION --- */
+        /* --- ABOUT SECTION & BEFORE/AFTER --- */
         .about-section {
             padding: 60px 0;
             text-align: center;
@@ -708,6 +708,61 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
+        }
+
+        .before-after-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 50px auto;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+        }
+
+        @media (min-width: 768px) {
+            .before-after-container {
+                flex-direction: row;
+            }
+        }
+
+        .ba-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+            max-width: 350px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .ba-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .ba-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .ba-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2;
         }
 
         /* --- MODALS & GALLERY --- */
@@ -817,6 +872,39 @@
             border: 1px solid var(--accent-gold);
         }
 
+        .text-modal-content {
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh; 
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.4s ease;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            overflow-y: auto; 
+        }
+        
+        .text-modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .text-modal-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
         .close-modal {
             position: absolute;
             top: 15px;
@@ -903,8 +991,7 @@
 
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                     <button class="btn-main open-modal-btn">Записаться на консультацию</button>
-                    <button class="btn-main open-modal-btn" style="filter: hue-rotate(45deg);">Оплатить</button>
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -987,34 +1074,34 @@
 
         <div class="programs-grid">
             <div class="program-card neumorphic">
-                <h3>Энерго Детокс</h3>
-                <p class="program-desc">Очищение от негативных установок и восстановление энергетического баланса.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <h3>⚡️ ЭНЕРГО ЗАРЯД</h3>
+                <p class="program-desc">Сессия для повышения уровня энергии, восстановления внутреннего ресурса и состояния витальности.</p>
+                <button class="btn-main btn-small open-desc-btn" data-id="energy">Подробнее</button>
             </div>
             <div class="program-card neumorphic">
-                <h3>Анти-Страх</h3>
+                <h3>🔥 Анти-Страх</h3>
                 <p class="program-desc">Техники работы с подсознанием для преодоления внутренних барьеров.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <button class="btn-main btn-small open-desc-btn" data-id="fear">Подробнее</button>
             </div>
             <div class="program-card neumorphic">
-                <h3>Любовь к телу</h3>
+                <h3>🤍 Любовь к телу</h3>
                 <p class="program-desc">Сеанс глубокого принятия своей физической и чувственной природы.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <button class="btn-main btn-small open-desc-btn" data-id="body">Подробнее</button>
             </div>
             <div class="program-card neumorphic">
-                <h3>Возвращение к себе</h3>
+                <h3>🌹 Возвращение к себе</h3>
                 <p class="program-desc">Комплексная программа обретения витальности и внутренней силы.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <button class="btn-main btn-small open-desc-btn" data-id="return">Подробнее</button>
             </div>
             <div class="program-card neumorphic">
-                <h3>Разрешение конфликта</h3>
+                <h3>🌿 Разрешение конфликта</h3>
                 <p class="program-desc">Медиация и психологическая работа с межличностными проблемами.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <button class="btn-main btn-small open-desc-btn" data-id="conflict">Подробнее</button>
             </div>
             <div class="program-card neumorphic">
-                <h3>Постановка цели</h3>
+                <h3>🎯 Постановка цели</h3>
                 <p class="program-desc">НЛП-практики для четкого видения будущего и шагов к нему.</p>
-                <button class="btn-main btn-small open-modal-btn">Подробнее</button>
+                <button class="btn-main btn-small open-desc-btn" data-id="goal">Подробнее</button>
             </div>
         </div>
 
@@ -1093,9 +1180,22 @@
         <div class="about-card neumorphic">
             <h2 class="about-title">Обо мне</h2>
             <p class="about-text">
-                Я сама прошла глубокую трансформацию через тело, сознание и внутреннюю работу.
+                Я сама прошла глубокую трансформацию.
+                От лишнего веса, нехватки энергии, разочарования в себе и проблем со здоровьем — до прилива сил, уверенности, жизнерадостности и наслаждения собой и своим телом. В планах завершение строительства ретрит-центра в Талгаре. 
                 Сегодня моя деятельность — это синтез психологии, телесных практик, духовных подходов и современных методов работы с подсознанием.
             </p>
+
+            <div class="before-after-container">
+                <div class="ba-card">
+                    <div class="ba-badge">До</div>
+                    <img src="https://images.fillout.com/orgid-417426/flowpublicid-ssZbzWEXsVus/widgetid-45GZ/2w9dgr1oMMamQWV1bhLaHa/5242573335500100662_121.jpg?a=tYeTrWLxM5GvhhD5QqHivF" alt="До трансформации">
+                </div>
+                <div class="ba-card">
+                    <div class="ba-badge">После</div>
+                    <img src="https://images.fillout.com/orgid-417426/flowpublicid-ssZbzWEXsVus/widgetid-cE29/ocvbZoHDFBoJB9o9hhZM4j/5242573335500100663_121.jpg?a=mDAceu2EzSgVJh2KtdkbJx" alt="После трансформации">
+                </div>
+            </div>
+
             <p style="margin-bottom: 20px; font-weight: 500;">Не знаешь, с чего начать?</p>
             <button class="btn-main open-modal-btn btn-small">Запишись на консультацию</button>
         </div>
@@ -1114,6 +1214,15 @@
         <div class="modal-content">
             <button class="close-modal" id="closeModal">&times;</button>
             <iframe src="https://elizaveta-diginau.fillout.com/work" title="Заявка"></iframe>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="textModal">
+        <div class="text-modal-content">
+            <button class="close-modal" id="closeTextModal">&times;</button>
+            <h3 id="modalTitle">Заголовок услуги</h3>
+            <p id="modalDescription">Описание услуги...</p>
+            <button class="btn-main btn-small" id="closeTextBtn">Закрыть</button>
         </div>
     </div>
 
@@ -1153,22 +1262,98 @@
             "retina_detect": true
         });
 
-        const modal = document.getElementById('bookingModal');
-        const openBtns = document.querySelectorAll('.open-modal-btn');
-        const closeBtn = document.getElementById('closeModal');
-        openBtns.forEach(btn => {
+        /* --- ЛОГИКА ДЛЯ МОДАЛКИ ЗАПИСИ (IFRAME) --- */
+        const bookingModal = document.getElementById('bookingModal');
+        const openBookingBtns = document.querySelectorAll('.open-modal-btn');
+        const closeBookingBtn = document.getElementById('closeModal');
+        
+        openBookingBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.preventDefault(); modal.style.display = 'flex';
-                setTimeout(() => { modal.style.opacity = '1'; modal.querySelector('.modal-content').style.transform = 'scale(1)'; }, 10);
+                e.preventDefault(); 
+                bookingModal.style.display = 'flex';
+                setTimeout(() => { 
+                    bookingModal.style.opacity = '1'; 
+                    bookingModal.querySelector('.modal-content').style.transform = 'scale(1)'; 
+                }, 10);
             });
         });
-        function closeModalFunc() {
-            modal.style.opacity = '0'; modal.querySelector('.modal-content').style.transform = 'scale(0.95)';
-            setTimeout(() => { modal.style.display = 'none'; }, 400);
+        
+        function closeBookingFunc() {
+            bookingModal.style.opacity = '0'; 
+            bookingModal.querySelector('.modal-content').style.transform = 'scale(0.95)';
+            setTimeout(() => { bookingModal.style.display = 'none'; }, 400);
         }
-        closeBtn.addEventListener('click', closeModalFunc);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+        
+        if(closeBookingBtn) closeBookingBtn.addEventListener('click', closeBookingFunc);
+        if(bookingModal) bookingModal.addEventListener('click', (e) => { if (e.target === bookingModal) closeBookingFunc(); });
 
+        /* --- ЛОГИКА ДЛЯ НОВОЙ ТЕКСТОВОЙ МОДАЛКИ --- */
+        const textModal = document.getElementById('textModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const closeTextModalX = document.getElementById('closeTextModal');
+        const closeTextBtn = document.getElementById('closeTextBtn');
+        const openDescBtns = document.querySelectorAll('.open-desc-btn');
+
+        // Данные для модальных окон
+        const servicesData = {
+            'conflict': {
+                title: '🌿 РАЗРЕШЕНИЕ КОНФЛИКТА',
+                text: 'Помощь в проработке внутренних и внешних конфликтов. Разбираем ситуацию, снижаем эмоциональное напряжение, находим новые решения и ясность.'
+            },
+            'goal': {
+                title: '🎯 ПОСТАНОВКА ЦЕЛИ',
+                text: 'Определяем истинные желания, формулируем цель и создаём понятный план действий. Работаем с мотивацией и внутренними блоками.'
+            },
+            'body': {
+                title: '🤍 Любовь к телу',
+                text: 'Практика расслабления и восстановления контакта с телом. Релакс-терапия, йога-массаж, sound healing. Снижение тревожности, отдых и принятие себя.'
+            },
+            'energy': {
+                title: '⚡️ ЭНЕРГО ЗАРЯД',
+                text: 'Сессия для повышения уровня энергии, восстановления внутреннего ресурса и состояния витальности. Помогает выйти из усталости, активировать тело, вернуть ясность, мотивацию и внутренний драйв.'
+            },
+            'fear': {
+                title: '🔥 АНТИ-СТРАХ',
+                text: 'Психологическая работа со страхами и ограничивающими убеждениями. Помогает вернуть внутреннюю устойчивость, уверенность и проявленность.'
+            },
+            'return': {
+                title: '🌹 ВОЗВРАЩЕНИЕ К СЕБЕ',
+                text: 'Глубинная сессия для перепрограммирования и раскрытия женственности, уверенности и сексуальности. Понимание своих потребностей и возвращение опоры на себя.'
+            }
+        };
+
+        openDescBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const serviceId = btn.getAttribute('data-id');
+                const data = servicesData[serviceId];
+
+                if (data) {
+                    modalTitle.innerText = data.title;
+                    modalDescription.innerText = data.text;
+                    
+                    textModal.style.display = 'flex';
+                    setTimeout(() => { 
+                        textModal.style.opacity = '1'; 
+                        textModal.querySelector('.text-modal-content').style.transform = 'scale(1)'; 
+                    }, 10);
+                }
+            });
+        });
+
+        function closeTextFunc() {
+            textModal.style.opacity = '0'; 
+            textModal.querySelector('.text-modal-content').style.transform = 'scale(0.95)';
+            setTimeout(() => { textModal.style.display = 'none'; }, 400);
+        }
+
+        if(closeTextModalX) closeTextModalX.addEventListener('click', closeTextFunc);
+        if(closeTextBtn) closeTextBtn.addEventListener('click', closeTextFunc);
+        if(textModal) textModal.addEventListener('click', (e) => { if (e.target === textModal) closeTextFunc(); });
+
+
+        /* --- ЛОГИКА ГАЛЕРЕИ --- */
         const reviewImages = [
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-oJmt/sPmnNmSSPxfvt49P8iibeh/1.jpg?a=7PBWLSJWAiEEa4zEu7TAjy",
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-fcrg/a8BmuZrPEWtWyccqA836B4/3.jpg?a=kdaogMCHD9X9iERYHVMGYG",

@@ -116,6 +116,11 @@
             font-size: 0.9rem;
         }
 
+        .btn-tiny {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+        }
+
         /* --- HEADER --- */
         header {
             position: fixed;
@@ -246,25 +251,82 @@
             }
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-muted);
+        /* --- HERO BIO (КТО Я) --- */
+        .hero-bio {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .hero-bio-title {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .hero-bio-lead {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        
+        .hero-bio-list {
+            list-style: none;
             margin-bottom: 30px;
+        }
+        
+        .hero-bio-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1rem;
+        }
+        
+        .hero-bio-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+        }
+        
+        .hero-projects {
+            padding: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-left: 4px solid var(--accent-gold); 
+        }
+        
+        .hero-projects-title {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .hero-projects-list {
+            list-style: none;
+        }
+        
+        .hero-projects-list li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 300;
         }
-
-        .regalia-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .regalia-item {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border: 1px solid rgba(255,255,255,0.5);
+        
+        .hero-projects-list li:last-child {
+            margin-bottom: 0;
         }
 
         /* --- MISSION STYLING --- */
@@ -425,7 +487,7 @@
         }
 
         .product-group-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-align: center;
             margin-bottom: 40px;
             color: var(--text-main);
@@ -435,6 +497,7 @@
             position: relative;
             left: 50%;
             transform: translateX(-50%);
+            text-transform: uppercase;
         }
 
         .programs-grid {
@@ -475,43 +538,43 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* --- PREMIUM GROUP PRODUCT CARD --- */
-        .premium-group-card {
-            border: 2px solid rgba(212, 175, 55, 0.5);
-            padding: 0; 
-            position: relative;
-            margin-top: 50px;
-            background: linear-gradient(145deg, #ffffff, #f9f9f9);
-            overflow: hidden;
+        /* --- NEW GROUP PRODUCTS --- */
+        .group-products-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
-        .group-content-wrapper {
-            padding: 50px 50px 20px 50px;
-        }
-
-        .group-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .group-header h3 {
-            font-size: 2rem;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--accent-gold);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .group-content-grid {
+        .group-cards-row {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-            align-items: flex-start;
+            gap: 40px;
         }
 
-        .group-col-left {
-            padding-right: 30px;
-            border-right: 1px solid rgba(0,0,0,0.05);
+        @media (min-width: 900px) {
+            .group-cards-row {
+                grid-template-columns: 1.1fr 0.9fr; 
+                align-items: stretch;
+            }
+        }
+
+        .group-card-main {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .group-card-secondary {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .badge-gold {
@@ -524,6 +587,7 @@
             border-radius: 4px;
             margin-bottom: 15px;
             letter-spacing: 0.1em;
+            align-self: flex-start;
         }
 
         .marathon-title {
@@ -540,25 +604,67 @@
             font-weight: 300;
         }
 
-        .format-box {
-            background: rgba(212, 175, 55, 0.08);
+        .neumorphic-inset {
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+            border-radius: 15px;
             padding: 20px;
-            border-radius: 10px;
+            margin-bottom: 30px;
         }
         
-        .format-box ul { list-style: none; margin-top: 10px; }
-        .format-box li { margin-bottom: 5px; padding-left: 20px; position: relative; }
-        .format-box li::before {
+        .neumorphic-inset ul { list-style: none; margin-top: 10px; }
+        .neumorphic-inset li { margin-bottom: 5px; padding-left: 20px; position: relative; color: var(--text-main); font-weight: 300;}
+        .neumorphic-inset li::before {
             content: '•';
             color: var(--accent-gold);
             position: absolute;
             left: 0; top: 3px; font-size: 1.5rem; line-height: 1rem;
         }
 
+        /* Soft Gold Glow for Main Card */
+        @keyframes soft-gold-glow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.05), inset 0 0 5px rgba(212, 175, 55, 0.05); }
+            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.1); }
+            100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.05), inset 0 0 5px rgba(212, 175, 55, 0.05); }
+        }
+
+        .soft-glow-block {
+            animation: soft-gold-glow 5s ease-in-out infinite;
+        }
+
+        /* Actions */
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: auto; 
+        }
+
+        /* Glowing Button Animation */
+        .btn-meditative-glow {
+            background: linear-gradient(135deg, var(--accent-gold), #e6c86e);
+            color: #fff !important;
+            border: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            animation: pulse-glow 3s infinite alternate ease-in-out;
+        }
+        .btn-meditative-glow:hover {
+            background: var(--accent-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 4px 10px var(--shadow-dark); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 8px 20px var(--shadow-dark); }
+        }
+
+        /* Intensives Card */
         .intensives-title {
             font-size: 1.8rem;
             margin-bottom: 25px;
             color: var(--text-main);
+            text-align: center;
         }
 
         .small-tag {
@@ -566,119 +672,84 @@
             color: var(--text-muted);
             vertical-align: middle;
             font-weight: 300;
+            text-transform: none;
         }
 
-        .intensives-list { list-style: none; }
+        .intensives-list { list-style: none; margin-bottom: 30px;}
         .intensives-list li {
             margin-bottom: 12px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-main);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-            padding-bottom: 8px;
-        }
-
-        /* --- NEW PREMIUM FEATURES SECTION --- */
-        .premium-features-container {
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(212, 175, 55, 0.1));
-            padding: 40px 50px 50px 50px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-        }
-
-        .premium-divider {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        
-        .premium-divider span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .premium-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            padding: 12px 15px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+            border-radius: 12px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            transition: transform 0.3s ease;
+            font-weight: 300;
+        }
+        
+        .intensive-title-text {
+            flex: 1;
+        }
+
+        .card-actions-center {
+            display: flex;
             justify-content: center;
-            min-height: 80px;
+            margin-top: auto;
         }
 
-        .feature-card::before {
-            content: '✦';
+        /* Shared Features Block */
+        .group-features-block {
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .features-block-title {
+            font-size: 1.6rem;
             color: var(--accent-gold);
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            transition: opacity 0.3s;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .feature-text {
-            font-weight: 400;
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .feature-pill {
+            font-size: 0.9rem;
+            padding: 12px 22px;
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+            border-radius: 30px;
             color: var(--text-main);
             text-transform: uppercase;
-            font-size: 0.9rem;
             letter-spacing: 0.05em;
-            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, color 0.3s;
+            font-weight: 400;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
-            background: #fff;
+        .feature-pill:hover {
+            transform: translateY(-3px);
+            color: var(--accent-gold);
         }
 
-        .feature-card:hover::before {
-            opacity: 1;
-            text-shadow: 0 0 5px var(--accent-gold);
-        }
-
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
-            transform: skewX(-25deg);
-            transition: 0.5s;
-            pointer-events: none;
-        }
-
-        .feature-card:hover::after {
-            left: 150%;
-            transition: 0.7s ease-in-out;
-        }
-
-        .group-cta-wrapper {
-            text-align: center;
-            margin-top: 40px;
+        .feature-pill::before {
+            content: '✦';
+            color: var(--accent-gold);
+            font-size: 0.9rem;
         }
 
         /* --- ABOUT SECTION & BEFORE/AFTER --- */
@@ -762,6 +833,50 @@
             letter-spacing: 0.1em;
             font-size: 0.9rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        /* --- TELEGRAM PROMO BLOCK --- */
+        .telegram-promo {
+            margin: 60px auto 0;
+            padding: 50px 40px;
+            max-width: 800px;
+            text-align: center;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--bg-color), #ffffff);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .telegram-promo::after {
+            content: '✈️';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.05;
+            bottom: -30px;
+            right: -20px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .telegram-promo-title {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .telegram-promo-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
             z-index: 2;
         }
 
@@ -889,12 +1004,13 @@
         }
         
         .text-modal-content h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--text-main);
             margin-bottom: 20px;
             border-bottom: 1px solid var(--accent-gold);
             display: inline-block;
             padding-bottom: 10px;
+            line-height: 1.3;
         }
         
         .text-modal-content p {
@@ -924,23 +1040,34 @@
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-content h1 { font-size: 2rem; }
             .hero-name { font-size: 2.8rem; -webkit-text-stroke: 1px var(--accent-gold); }
+            
+            .hero-bio { text-align: center; }
+            .hero-bio-title { justify-content: center; }
+            .hero-bio-list li, .hero-projects-list li { text-align: left; }
+
             .regalia-grid { justify-content: center; }
             .personal-session-card { flex-direction: column; gap: 20px; text-align: center; }
             .gallery-prev, .gallery-next { font-size: 20px; padding: 10px; }
             .reviews-frame { padding: 30px 20px; }
             
-            /* Mission Blocks Responsive */
             .mission-points-grid { grid-template-columns: 1fr; gap: 20px; }
             .mission-lead { font-size: 1.2rem; }
             .quote-text { font-size: 1.3rem; }
             
-            /* Responsive Group Card */
-            .group-content-grid { grid-template-columns: 1fr; gap: 40px; }
-            .group-col-left { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 30px;}
-            .premium-group-card { padding: 0; }
-            .group-content-wrapper { padding: 30px 20px; }
-            .premium-features-container { padding: 30px 20px; }
+            /* Responsive updates for Group Products */
+            .group-cards-row { grid-template-columns: 1fr; gap: 30px; }
+            .group-card-main, .group-card-secondary { padding: 30px 20px; }
+            .group-features-block { padding: 30px 20px; }
+            .marathon-title { font-size: 2rem; }
+            .card-actions { flex-direction: column; }
+            .card-actions .btn-main { width: 100%; }
+            .feature-pill { font-size: 0.8rem; padding: 10px 15px; }
+            .features-block-title { font-size: 1.3rem; }
+            .intensives-list li { flex-direction: column; align-items: flex-start; gap: 10px; }
             
+            .telegram-promo { padding: 40px 20px; }
+            .telegram-promo-title { font-size: 1.6rem; }
+
             .nav-capsule {
                 padding: 10px;
                 gap: 10px;
@@ -980,18 +1107,31 @@
                     <div class="hero-name">ДИГИНАУ</div>
                 </div>
                 
-                <p class="hero-subtitle">Проводник к состоянию витальности — через тело, движение и перепрограммирование подсознания.</p>
-                
-                <div class="regalia-grid">
-                    <div class="regalia-item neumorphic">Психолог-консультант, НЛП</div>
-                    <div class="regalia-item neumorphic">Гипнотерапевт</div>
-                    <div class="regalia-item neumorphic">Мастер йоги и гвоздетерапии</div>
-                    <div class="regalia-item neumorphic">Ведущая ретритов</div>
+                <div class="hero-bio">
+                    <h3 class="hero-bio-title">🌿 Кто я</h3>
+                    <p class="hero-bio-lead">
+                        <strong>Я — мастер телесных практик</strong> и проводник к состоянию витальности через тело, движение и перепрограммирование подсознания.
+                    </p>
+                    
+                    <ul class="hero-bio-list">
+                        <li>Сертифицированный психолог-консультант, NLP-практик и гипнотерапевт.</li>
+                        <li>Тренер по йоге и мастер гвоздетерапии.</li>
+                        <li>Ведущая и организатор тренингов и ретритов на тему психоэмоционального здоровья, телесной осознанности и внутренней трансформации.</li>
+                    </ul>
+
+                    <div class="hero-projects neumorphic">
+                        <h4 class="hero-projects-title">Автор уникальных проектов:</h4>
+                        <ul class="hero-projects-list">
+                            <li><span>✨</span> "Чакральный тренинг на воде"</li>
+                            <li><span>✨</span> Игровой марафон «Свобода быть собой»</li>
+                            <li><span>✨️</span> Живой ретрит "Магия быть собой"</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                     <button class="btn-main open-modal-btn">Записаться на консультацию</button>
-                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1004,8 +1144,8 @@
         <div class="mission-main-card neumorphic">
             <p class="mission-lead">Моя миссия — возвращать людей к <span class="text-gold">витальности</span>.</p>
             <div class="mission-divider"></div>
-            <p>К живому телу. К внутренней опоре.<br>
-            К состоянию, в котором жизнь ощущается, а не проживается на автомате.</p>
+            <p>Я возвращаю людей  к состоянию, в котором жизнь ощущается в полной мере,<br>
+           а не просто проживается на автомате.</p>
         </div>
 
         <div class="mission-subheader">
@@ -1105,76 +1245,79 @@
             </div>
         </div>
 
-        <div class="premium-group-card neumorphic">
-            
-            <div class="group-content-wrapper">
-                <div class="group-header">
-                    <h3>Мои продукты (групповые)</h3>
-                </div>
-                
-                <div class="group-content-grid">
-                    <div class="group-col-left">
-                        <div class="badge-gold">Флагманский продукт</div>
-                        <h2 class="marathon-title">🎯 «Свобода быть собой»</h2>
-                        <p class="marathon-desc">Трансформационный игровой марафон на исполнение целей и улучшения качества жизни.</p>
-                        <div class="format-box">
-                            <strong>Формат:</strong>
-                            <ul>
-                                <li>5 недель</li>
-                                <li>Живое участие и онлайн (Telegram)</li>
-                            </ul>
-                        </div>
+        <h3 class="product-group-title" style="margin-top: 40px;">Мои продукты (групповые)</h3>
+
+        <div class="group-products-container">
+            <div class="group-cards-row">
+                <div class="group-card-main neumorphic soft-glow-block">
+                    <div class="badge-gold">Флагманский продукт</div>
+                    <h2 class="marathon-title">🎯 «Свобода быть собой»</h2>
+                    <p class="marathon-desc">Трансформационный игровой марафон на исполнение целей и улучшения качества жизни.</p>
+                    
+                    <div class="neumorphic-inset">
+                        <strong>Формат:</strong>
+                        <ul>
+                            <li>5 недель</li>
+                            <li>Живое участие и онлайн (Telegram)</li>
+                        </ul>
                     </div>
 
-                    <div class="group-col-right">
-                        <h3 class="intensives-title">Интенсивы <span class="small-tag">(7 дней, Telegram)</span></h3>
-                        <ul class="intensives-list">
-                            <li>1️⃣ Свобода в деньгах и проявленность</li>
-                            <li>2️⃣ Свобода в теле и питании</li>
-                            <li>3️⃣ Витальность (раскрепощение, женственность, энергия)</li>
-                            <li>4️⃣ Свобода от страхов</li>
-                            <li>5️⃣ Релакс-терапия</li>
-                            <li>6️⃣ Свобода выбора — шаги к цели</li>
-                        </ul>
+                    <div class="card-actions">
+                        <a href="https://diginau-elizaveta.github.io/enjoy-vita/index1" class="btn-main btn-meditative-glow" target="_blank">Подробнее о проекте</a>
+                        <button class="btn-main open-modal-btn">Оставить заявку</button>
+                    </div>
+                </div>
+
+                <div class="group-card-secondary neumorphic">
+                    <h3 class="intensives-title">Интенсивы <br><span class="small-tag">(7 дней, Telegram)</span></h3>
+                    
+                    <ul class="intensives-list">
+                        <li>
+                            <span class="intensive-title-text">1️⃣ Свобода в деньгах и проявленность</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int1">Подробнее</button>
+                        </li>
+                        <li>
+                            <span class="intensive-title-text">2️⃣ Свобода в теле и питании</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int2">Подробнее</button>
+                        </li>
+                        <li>
+                            <span class="intensive-title-text">3️⃣ Витальность (раскрепощение...)</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int3">Подробнее</button>
+                        </li>
+                        <li>
+                            <span class="intensive-title-text">4️⃣ Свобода от страхов</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int4">Подробнее</button>
+                        </li>
+                        <li>
+                            <span class="intensive-title-text">5️⃣ Релакс-терапия</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int5">Подробнее</button>
+                        </li>
+                        <li>
+                            <span class="intensive-title-text">6️⃣ Свобода выбора — шаги к цели</span>
+                            <button class="btn-main btn-tiny open-desc-btn" data-id="int6">Подробнее</button>
+                        </li>
+                    </ul>
+
+                    <div class="card-actions-center">
+                        <button class="btn-main open-modal-btn">Записаться на интенсив</button>
                     </div>
                 </div>
             </div>
 
-            <div class="premium-features-container">
-                <div class="premium-divider">
-                    <span>🌿 Что внутри марафонов и интенсивов</span>
-                </div>
-
-                <div class="premium-grid">
-                    <div class="feature-card">
-                        <span class="feature-text">Телесные практики</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Динамичные медитации</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Гипномедитации</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Перепрограммирование мышления</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Задания на осознанность</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Чувствование тела</span>
-                    </div>
-                    <div class="feature-card">
-                        <span class="feature-text">Работа с эмоциями</span>
-                    </div>
-                </div>
-
-                <div class="group-cta-wrapper">
-                    <button class="btn-main open-modal-btn">✅ Оставить заявку</button>
+            <div class="group-features-block neumorphic">
+                <h3 class="features-block-title">🌿 Что внутри марафонов и интенсивов</h3>
+                <div class="features-grid">
+                    <div class="feature-pill">Телесные практики</div>
+                    <div class="feature-pill">Динамичные медитации</div>
+                    <div class="feature-pill">Гипномедитации</div>
+                    <div class="feature-pill">Перепрограммирование мышления</div>
+                    <div class="feature-pill">Задания на осознанность</div>
+                    <div class="feature-pill">Чувствование тела</div>
+                    <div class="feature-pill">Работа с эмоциями</div>
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
     <section id="about" class="about-section container">
         <div class="about-card neumorphic">
@@ -1199,6 +1342,13 @@
             <p style="margin-bottom: 20px; font-weight: 500;">Не знаешь, с чего начать?</p>
             <button class="btn-main open-modal-btn btn-small">Запишись на консультацию</button>
         </div>
+
+        <div class="telegram-promo neumorphic">
+            <h3 class="telegram-promo-title">Не пропусти важные новости!</h3>
+            <p class="telegram-promo-desc">Подписывайся на мой канал, там тебя ждет всё самое интересное: анонсы новых программ, полезные практики на каждый день и много вдохновения для твоего роста.</p>
+            <button class="btn-main" onclick="window.open('https://t.me/tvoy_channel', '_blank')">Записаться на рассылку</button>
+        </div>
+
     </section>
 
     <div id="galleryModal" class="gallery-modal">
@@ -1320,6 +1470,31 @@
             'return': {
                 title: '🌹 ВОЗВРАЩЕНИЕ К СЕБЕ',
                 text: 'Глубинная сессия для перепрограммирования и раскрытия женственности, уверенности и сексуальности. Понимание своих потребностей и возвращение опоры на себя.'
+            },
+            /* ДАННЫЕ ДЛЯ ИНТЕНСИВОВ */
+            'int1': {
+                title: '1️⃣ Свобода в деньгах',
+                text: 'Глубокая проработка финансовых блоков, страхов и установок. Учимся разрешать себе больше, проявляться в мир и привлекать изобилие без выгорания.'
+            },
+            'int2': {
+                title: '2️⃣ Свобода в теле и питании',
+                text: 'Практики на принятие своего тела, избавление от расстройств пищевого поведения и навязчивых мыслей о весе. Интуитивное питание и любовь к себе.'
+            },
+            'int3': {
+                title: '3️⃣ Витальность и энергия',
+                text: 'Раскрепощение телесных блоков, активация женственности и жизненной энергии. Наполняемся ресурсом и учимся звучать и двигаться свободно.'
+            },
+            'int4': {
+                title: '4️⃣ Свобода от страхов',
+                text: 'Работа с подсознанием для преодоления тревог, панических настроений и внутренних барьеров, мешающих жить полной жизнью.'
+            },
+            'int5': {
+                title: '5️⃣ Релакс-терапия',
+                text: 'Интенсив для тотального замедления и отдыха. Телесные практики и медитации для снятия стресса, зажимов и восстановления нервной системы.'
+            },
+            'int6': {
+                title: '6️⃣ Свобода выбора — шаги к цели',
+                text: 'НЛП-практики и постановка целей. Учимся слышать истинные желания, выстраивать маршрут к мечте и делать уверенные шаги без самосаботажа.'
             }
         };
 

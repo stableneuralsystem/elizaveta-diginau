@@ -880,6 +880,131 @@
             z-index: 2;
         }
 
+        /* --- GRAY SECTION DIVIDER --- */
+        .section-divider {
+            width: 100%;
+            max-width: 800px;
+            height: 1px;
+            margin: 40px auto;
+            background: linear-gradient(90deg, transparent, rgba(160, 165, 175, 0.5), transparent);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- AI CREATIVE STUDIO PROMO BLOCK --- */
+        .creative-promo-section {
+            padding: 40px 20px 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Матовое стекло (Glassmorphism) */
+        .glass-promo-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            padding: 70px 40px;
+            text-align: center;
+            max-width: 850px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(142, 68, 173, 0.15); /* Мягкая фиолетовая тень */
+            animation: purple-glass-pulse 4s infinite alternate ease-in-out;
+            z-index: 1;
+        }
+
+        /* Анимированный фиолетовый свет ВНУТРИ блока */
+        .glass-promo-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(155, 89, 182, 0.25) 0%, rgba(255,255,255,0) 60%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+            animation: purple-inner-glow 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes purple-inner-glow {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        @keyframes purple-glass-pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(142, 68, 173, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                box-shadow: 0 15px 50px rgba(142, 68, 173, 0.35), inset 0 0 30px rgba(155, 89, 182, 0.15);
+            }
+        }
+
+        .glass-promo-card h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .glass-promo-card p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ai-glow-text {
+            font-weight: 500;
+            color: #8e44ad;
+            text-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
+        }
+
+        /* Стеклянная кнопка с фиолетовым акцентом */
+        .btn-glass-purple {
+            display: inline-block;
+            padding: 16px 45px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.15);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.1em;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .btn-glass-purple:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            color: #5c3566;
+            box-shadow: 0 8px 30px rgba(142, 68, 173, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.8);
+            transform: translateY(-3px);
+            border-color: #fff;
+        }
+
         /* --- MODALS & GALLERY --- */
         .gallery-modal {
             display: none;
@@ -1068,6 +1193,13 @@
             .telegram-promo { padding: 40px 20px; }
             .telegram-promo-title { font-size: 1.6rem; }
 
+            /* Адаптив для промо-блока */
+            .creative-promo-section { padding: 20px 20px 80px; }
+            .glass-promo-card { padding: 50px 20px; }
+            .glass-promo-card h2 { font-size: 2.2rem; }
+            .glass-promo-card p { font-size: 1.1rem; margin-bottom: 35px; }
+            .btn-glass-purple { padding: 14px 30px; font-size: 1rem; width: 100%; box-sizing: border-box;}
+
             .nav-capsule {
                 padding: 10px;
                 gap: 10px;
@@ -1136,6 +1268,8 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <section id="mission" class="mission container">
         <div class="section-header">
             <h2 class="text-gold">МОЯ МИССИЯ</h2>
@@ -1168,7 +1302,7 @@
             <div class="mission-point-card neumorphic">
                 <div class="mission-icon-gold">✦</div>
                 <h3>Энергия</h3>
-                <p>Пробудить жизненную энергию и внутреннюю витальность</p>
+                <p>Пробудить жизненную энергию и внутренней витальность</p>
             </div>
             
             <div class="mission-point-card neumorphic">
@@ -1184,6 +1318,8 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <section id="reviews" class="reviews-section container">
         <div class="reviews-frame neumorphic">
             <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 20px;">Отзывы</h2>
@@ -1191,6 +1327,8 @@
             <button class="btn-main" onclick="openGallery()">Смотреть кейсы</button>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <section id="products" class="products-section container">
         <div class="section-header">
@@ -1317,7 +1455,9 @@
                 </div>
             </div>
         </div>
-        </section>
+    </section>
+
+    <div class="section-divider"></div>
 
     <section id="about" class="about-section container">
         <div class="about-card neumorphic">
@@ -1348,9 +1488,17 @@
             <p class="telegram-promo-desc">Подписывайся на мой канал, там тебя ждет всё самое интересное: анонсы новых программ, полезные практики на каждый день и много вдохновения для твоего роста.</p>
             <button class="btn-main" onclick="window.open('https://t.me/tvoy_channel', '_blank')">Записаться на рассылку</button>
         </div>
-
     </section>
 
+    <div class="section-divider"></div>
+
+    <section class="creative-promo-section container">
+        <div class="glass-promo-card">
+            <h2>Хочешь себе свой сайт?</h2>
+            <p><span class="ai-glow-text">AI CREATIVE STUDIO</span> ждет тебя с твоими идеями!</p>
+            <a href="https://www.creative.ru" target="_blank" class="btn-glass-purple">Создать свой сайт</a>
+        </div>
+    </section>
     <div id="galleryModal" class="gallery-modal">
         <span class="gallery-close" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">

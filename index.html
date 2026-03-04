@@ -359,6 +359,15 @@
             opacity: 0.5;
         }
 
+        /* ТЕКСТ ВИТАЛЬНОСТИ (БЕЗ АНИМАЦИИ) */
+        .vitality-text {
+            color: var(--accent-gold);
+            margin-top: 25px;
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         .mission-subheader {
             text-align: center;
             max-width: 700px;
@@ -1282,6 +1291,7 @@
             <div class="mission-divider"></div>
             <p>Я возвращаю людей  к состоянию, в котором жизнь ощущается в полной мере,<br>
            а не просто проживается на автомате.</p>
+            <p class="vitality-text">Витальность — это жизненная сила, энергия, физическая и ментальная активность, определяющая способность человека радоваться жизни, выдерживать нагрузки, действовать эффективно и оставаться здоровым. Это понятие включает высокий уровень внутренней энергии, энтузиазм, способность адаптироваться и противостоять стрессам.</p>
         </div>
 
         <div class="mission-subheader">
@@ -1303,8 +1313,8 @@
             
             <div class="mission-point-card neumorphic">
                 <div class="mission-icon-gold">✦</div>
-                <h3>Энергия</h3>
-                <p>Пробудить жизненную энергию и внутренней витальность</p>
+                <h3>Внутренняя энергия</h3>
+                <p>Пробудить внутреннюю энергию и внутреннюю витальность</p>
             </div>
             
             <div class="mission-point-card neumorphic">
@@ -1681,6 +1691,18 @@
         /* --- ЛОГИКА ГАЛЕРЕИ --- */
         const reviewImages = [
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-oJmt/sPmnNmSSPxfvt49P8iibeh/1.jpg?a=7PBWLSJWAiEEa4zEu7TAjy",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-qodj/payDth66kv7cUiumFqMVCZ/2.jpg?a=82U64LCqdqoEjVojSeSqqQ",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-bSvn/nDDqg2rgnnmHXgBcJHxnb3/10.jpg?a=1drXbjGBnenNXCZXTXP3G7",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-rySS/njFXN1eNFpqSBAUvfGjHLn/11.jpg?a=muCcMzbetHnFSP6fv9dMNv",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-4bdQ/7J4rcip3xYwtCBmFAvh8kf/12.jpg?a=4pGZSuenG4TMnPvGDfxEQX",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-qHQJ/vmTGkoCgdWSowoXZ6DaxcC/13.jpg?a=6kcVGkKjFc9vQyzAqBLaHK",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-pz7e/mxRH3XLQcCkGnBvJqHSa6a/14.jpg?a=nw89L3Wvq6DWVzKoPJGpqp",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-9Yhv/mnqtnscUgyghG3CexqBi2N/15.jpg?a=vhobtW26aqzzDNVamSJpS5",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-ayR5/a59tKhxQJ7wbT34zxxa91Q/16.jpg?a=cw9WryCsBdro7Uwh86J8Mo",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-7aoD/hTq5ajVrubRisTtiA8fDEL/17.jpg?a=vSN6pxryVmQr1uaBbALqBx",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-ewnW/huvitCsQLn4WkQz7BtaiLj/18.jpg?a=aqXrWzMPsBR53aqENtUVGR",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-p8Ha/mqsVE5SASJRPfE6k64xh54/19.jpg?a=bXhAoM73M6f6cVYwez2Rrd",
+             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-oyTQ/cB68PhtsXntKHwmjnxHytZ/20.jpg?a=kt9UwUpzUnXyTYVoCUYjgb",
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-fcrg/a8BmuZrPEWtWyccqA836B4/3.jpg?a=kdaogMCHD9X9iERYHVMGYG",
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-jqh7/155rngzdJom7aytFP4awvH/4.jpg?a=p4rjy9TtN5sVauzEDBKHv2",
             "https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-cydh/aMUfFV6eyhWCQNbuaz4WZV/5.jpg?a=rYEWMEu9UvSwphNKxiikbW",

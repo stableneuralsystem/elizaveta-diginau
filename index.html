@@ -1555,15 +1555,16 @@
             });
         });
 
+        // --- ИЗМЕНЕНИЯ ЗДЕСЬ ---
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 45, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#FFD700" },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, // Больше частиц
+                "color": { "value": "#D4AF37" }, // Золотой цвет
                 "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
-                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false } },
-                "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
-                "line_linked": { "enable": true, "distance": 150, "color": "#FFD700", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 0.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false } }
+                "opacity": { "value": 0.8, "random": false, "anim": { "enable": true, "speed": 1, "opacity_min": 0.4, "sync": false } }, // Более яркие
+                "size": { "value": 5, "random": true, "anim": { "enable": true, "speed": 3, "size_min": 2, "sync": false } }, // Крупнее размер
+                "line_linked": { "enable": true, "distance": 150, "color": "#D4AF37", "opacity": 0.6, "width": 1.5 }, // Линии ярче и толще
+                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false } } // Чуть быстрее
             },
             "interactivity": {
                 "detect_on": "canvas",

@@ -135,6 +135,26 @@
             box-shadow: 0 15px 25px rgba(212, 175, 55, 0.5);
         }
 
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-main); font-size: 0.9rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            background: var(--bg-color);
+            border-radius: 20px;
+            box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        .btn-back:hover {
+            color: var(--accent-gold);
+            transform: translateX(-5px);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+        }
+        .btn-back svg { transition: transform 0.3s ease; }
+        .btn-back:hover svg { transform: translateX(-3px); }
+
         /* --- HEADER & NAV --- */
         .header {
             position: fixed; top: 15px; left: 0; width: 100%; z-index: 100;
@@ -167,19 +187,7 @@
             justify-content: center; text-align: center; padding-top: 100px;
             padding-bottom: 40px; position: relative;
         }
-        /* Liquid Morphing shape behind hero text */
-        .liquid-bg {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50vw; height: 50vw;
-            max-width: 600px; max-height: 600px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(242,244,248,0.2));
-            box-shadow: inset 20px 20px 40px rgba(255,255,255,0.5), 10px 10px 30px var(--shadow-dark);
-            z-index: 0;
-            animation: liquidMorph 8s ease-in-out infinite;
-        }
-        .hero-content { max-width: 900px; z-index: 2; position: relative; }
+        .hero-content { max-width: 900px; z-index: 2; position: relative; display: flex; flex-direction: column; align-items: center; }
         
         .hero h1 {
             font-size: clamp(2rem, 6vw, 3.5rem);
@@ -335,13 +343,26 @@
             display: flex; align-items: center; justify-content: center;
         }
         .close-modal:hover { color: var(--text-main); box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light); }
+        
+        /* Галерея сертификатов */
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px 10px 10px;
+        }
+        .cert-gallery img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+        .cert-gallery img:hover {
+            transform: scale(1.05);
+        }
 
         /* --- ANIMATIONS --- */
-        @keyframes liquidMorph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        }
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
             100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); }
@@ -383,6 +404,7 @@
             .mobile-only-btn button { width: 100%; }
             .author-actions { flex-direction: column; width: 100%; }
             .action-btn { width: 100%; justify-content: center; }
+            .cert-gallery { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
         }
     </style>
 </head>
@@ -418,8 +440,12 @@
     </header>
 
     <section class="hero">
-        <div class="liquid-bg"></div>
         <div class="container hero-content">
+            <a href="https://stableneuralsystem.github.io/elizaveta-diginau/" class="btn-back">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Назад в главное меню
+            </a>
+
             <h1>Это не просто марафон —<br>это ТРАНСФОРМАЦИЯ.</h1>
             <p>
                 Ты отпустишь роль «удобной», перестанешь жить чужими ожиданиями и позволишь себе быть настоящей. 
@@ -677,10 +703,19 @@
     </div>
 
     <div id="modal-cert" class="modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 900px;">
             <button class="close-modal close-cert">×</button>
-            <div style="flex:1; overflow-y:auto; -webkit-overflow-scrolling: touch; padding: 20px;">
-                <div data-fillout-id="tURseLja88us" data-fillout-embed-type="standard" style="width: 100%; height: 500px; position: relative;"></div>
+            <div style="flex:1; overflow-y:auto; -webkit-overflow-scrolling: touch;">
+                <div class="cert-gallery">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-1S1E/n8JeY24SbL9b54JhGcnhaL/1.jpg?a=qV3QDd4wq44VXBVFbUk8wk" alt="Сертификат 1">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-32d9/iMVKxDPdHWcKscvvrmGWD9/2.jpg?a=hketBPLFsLsZ9GxAwrtLdT" alt="Сертификат 2">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-t1io/hmFCT1NCBAHCKy4UT7BWhX/3.jpg?a=vqRdUhnQfsRPbpUhfQ5FSR" alt="Сертификат 3">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-6NUK/9vKt62PpMapSWrD1nKifbW/4.jpg?a=b93S92Vr5wDRPajoZdLqA2" alt="Сертификат 4">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-h2pH/89W4M1izPfFQLXFM5mCGGD/5.jpg?a=fFULhkLihynmJnwi5T3G3a" alt="Сертификат 5">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-wErq/sGYaS3f6Z2RsnGB87SREUk/6.jpg?a=6UT83ugNRk7H84MJhf6GgK" alt="Сертификат 6">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-iv6r/fA86PLbuYwC2WfWDqM9yKr/7.jpg?a=fV4dUtbc8Dc3LBwLya1Wqx" alt="Сертификат 7">
+                    <img src="https://images.fillout.com/orgid-393005/flowpublicid-su6MaBQqSpus/widgetid-trin/e8GvDHnbapD9qMEbpfV8ig/8.jpg?a=6RXjqjQCH4gfhwtUitn3FC" alt="Сертификат 8">
+                </div>
             </div>
         </div>
     </div>
